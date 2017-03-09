@@ -22,7 +22,7 @@ const StyledFeature = styled(Feature)`
   margin: 1rem;
 `
 
-const FeatureList = ({ ...props }) => (
+const Listing = ({ ...props }) => (
   <div {...props}>
     <StyledHeading>Basic Stack includes</StyledHeading>
     <Grid>
@@ -90,4 +90,4 @@ const FeatureList = ({ ...props }) => (
   </div>
 )
 
-export default FeatureList
+export default Listing

@@ -5,7 +5,7 @@ import { PageTemplate, Header, Footer, Heading } from 'components'
 const NotFoundPage = () => {
   return (
     <PageTemplate header={<Header />} footer={<Footer />}>
-      <Heading>404 Not Found</Heading>
+      <Heading>Requested page not found</Heading>
     </PageTemplate>
   )
 }

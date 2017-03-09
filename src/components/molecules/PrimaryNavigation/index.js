@@ -23,8 +23,8 @@ const Nav = styled.nav`
 const PrimaryNavigation = (props) => {
   return (
     <Nav {...props}>
-      <li><Link to="/" onlyActiveOnIndex activeClassName="active">Home</Link></li>
-      <li><Link to="/search" activeClassName="active">Search</Link></li>
+      <li><Link to="/listing" onlyActiveOnIndex activeClassName="active">listing</Link></li>
+      <li><Link to="/search" activeClassName="active">search</Link></li>
     </Nav>
   )
 }
