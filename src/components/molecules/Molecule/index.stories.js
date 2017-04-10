@@ -4,8 +4,8 @@ import { Molecule } from 'components'
 
 storiesOf('Molecule', module)
   .add('default', () => (
-    <Molecule>Hello</Molecule>
+    <Molecule></Molecule>
   ))
   .add('reverse', () => (
-    <Molecule reverse>Hello</Molecule>
+    <Molecule reverse></Molecule>
   ))

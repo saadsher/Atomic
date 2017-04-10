@@ -1,93 +1,44 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
-import { Feature, Link, Heading } from 'components'
+import { Block, Link } from 'components'
 
 const Grid = styled.div`
   display: flex;
   flex-flow: row wrap;
   & > * {
-    width: calc(50% - 2rem);
+    margin: 1rem;
+    width: calc(33.3% - 2rem);
     @media screen and (max-width: 640px) {
       width: calc(100% - 1rem);
     }
   }
 `
 
-const StyledHeading = styled(Heading)`
-  text-align: center;
-`
+const Listing = ({ data, ...props }) => {
+  const heading = data.bedrooms + " bed " + data.type.toLowerCase() + " for sale"
+  return (
+    <div {...props}>
+      <Grid>
+        <img src={data.image} alt={heading} />
+        <Block>
+          <h3>{heading}</h3>
+          <h2>£{data.price}</h2>
+          <p>{data.desc}</p>
+        </Block>
+        <Block>
+          <img src={data.logo} alt={data.agent} />
+          <p>{data.agent}</p>
+          <p>{data.address}</p>
+          <p>{data.tel}</p>
+        </Block>
+      </Grid>
+    </div>
+  )
+}
 
-const StyledFeature = styled(Feature)`
-  margin: 1rem;
-`
-
-const Listing = ({ ...props }) => (
-  <div {...props}>
-    <StyledHeading>Basic Stack includes</StyledHeading>
-    <Grid>
-      <StyledFeature
-        icon="react"
-        link="https://facebook.github.io/react"
-        title="React"
-        // soon
-      >
-        The amazing Facebook&apos;s UI library.
-      </StyledFeature>
-      <StyledFeature
-        icon="react-router"
-        link="https://github.com/ReactTraining/react-router"
-        title="React Router"
-      >
-        The declarative routing library for React.
-      </StyledFeature>
-      <StyledFeature
-        icon="webpack"
-        link="https://webpack.github.io/"
-        title="Webpack"
-      >
-        The awesome module bundler with <Link href="https://webpack.github.io/docs/hot-module-replacement.html">Hot Module Replacement</Link> enabled.
-      </StyledFeature>
-      <StyledFeature
-        icon="jest"
-        link="https://facebook.github.io/jest"
-        title="Jest"
-      >
-        The great testing framework used by Facebook to test all their Javascript code.
-      </StyledFeature>
-    </Grid>
-    <StyledHeading>Optional features</StyledHeading>
-    <Grid>
-      <StyledFeature
-        icon="redux"
-        link="https://github.com/diegohaz/arc/tree/redux"
-        title="Redux"
-      >
-        The predictable state container for JavaScript apps.
-      </StyledFeature>
-      <StyledFeature
-        icon="dist"
-        link="https://github.com/diegohaz/arc/tree/universal-redux"
-        title="Server Side Rendering"
-      >
-        Write once and run both on the server and client (everything works with javascript disabled, even the forms).
-      </StyledFeature>
-      <StyledFeature
-        icon="node"
-        link="https://github.com/diegohaz/arc/tree/fullstack"
-        title="RESTful API"
-      >
-        Write a backend with NodeJS, Express and MongoDB to your React app.
-      </StyledFeature>
-      <StyledFeature
-        icon="yeoman"
-        link="https://github.com/diegohaz/arc/tree/generator-arc"
-        title="Yeoman Generator"
-      >
-        Generate components, containers, redux stores and the entire app through command line.
-      </StyledFeature>
-    </Grid>
-  </div>
-)
+Listing.propTypes = {
+  data: PropTypes.object
+}
 
 export default Listing

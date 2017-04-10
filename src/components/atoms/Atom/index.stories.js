@@ -4,8 +4,8 @@ import Atom from '.'
 
 storiesOf('Atom', module)
   .add('default', () => (
-    <Atom>Hello</Atom>
+    <Atom></Atom>
   ))
   .add('reverse', () => (
-    <Atom reverse>Hello</Atom>
+    <Atom reverse></Atom>
   ))

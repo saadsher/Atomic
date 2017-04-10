@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { inject, observer } from 'mobx-react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
@@ -20,14 +21,16 @@ const Nav = styled.nav`
   }
 `
 
-const PrimaryNavigation = (props) => {
+const PrimaryNavigation = inject('routingStore')(observer(({routingStore, ...props}) => {
+  const { location, replace } = routingStore
   return (
     <Nav {...props}>
-      <li><Link to="/listing" onlyActiveOnIndex activeClassName="active">listing</Link></li>
-      <li><Link to="/search" activeClassName="active">search</Link></li>
+      <li><Link to="/search" onlyActiveOnIndex activeClassName="active" onClick={() => replace('/search')}>search</Link></li>
+      <li><Link to="/featured" onlyActiveOnIndex activeClassName="active" onClick={() => replace('/featured')}>featured</Link></li>
+      {/*<li>{location.pathname}</li>*/}
     </Nav>
   )
-}
+}))
 
 PrimaryNavigation.propTypes = {
   reverse: PropTypes.bool,

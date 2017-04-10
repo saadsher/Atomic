@@ -17,7 +17,7 @@ const isVendor = ({ userRequest }) => (
 const config = {
   devtool: DEBUG ? 'eval' : false,
   entry: {
-    app: [path.join(__dirname, 'src')],
+    app: [path.join(__dirname, 'src')]
   },
   output: {
     path: path.join(__dirname, 'dist'),

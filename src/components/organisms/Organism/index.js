@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 
 const Organism = (props) => {
   return (
-    <Wrapper {...props}>content</Wrapper>
+    <Wrapper {...props}></Wrapper>
   )
 }
 
